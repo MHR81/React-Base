@@ -1,0 +1,43 @@
+{
+   "sidebar": {
+    "profile": "Profile",
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "admins": "Admins",
+    "support": "Support",
+    "logout": "Logout"
+  },
+  "common": {
+    "language": "English",
+    "home": "Home",
+    "about": "About",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "profile": "Profile",
+    "settings": "Settings",
+    "dark": "Dark Mode",
+    "light": "Light Mode",
+    "Go Back" : "Go Back"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "otp": "OTP Code",
+    "verifyOtp": "Verify OTP",
+    "resend": "Resend OTP"
+  },
+  "messages": {
+    "success": "Success!",
+    "error": "Error",
+    "loading": "Loading...",
+    "welcome": "Welcome back!"
+  }
+}

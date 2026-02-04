@@ -1,0 +1,118 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap"); */
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'robotoRegular';
+  src: url('./assets//fonts/robotoRegular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IranianSans';
+  src: url('./assets/fonts/IranianSans.ttf') format('truetype');
+}
+
+/*//////// tailwind variables ////////*/
+@theme {
+  --color-bg: var(--background);
+  --color-fg: var(--foreground);
+  --color-fg2: var(--foreground2);
+  --color-fg3: var(--foreground3);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-card: var(--card-bg);
+  --color-header: var(--header-bg);
+  --color-sidebar: var(--sidebar-bg);
+  --color-btn: var(--button);
+  --color-btn-hover: var(--button-hover);
+  --color-btn2: var(--button2);
+  --color-btn2-hover: var(--button2-hover);
+  --color-border: var(--border);
+  --color-thead: var(--thead-bg);
+  --color-tbody: var(--tbody-bg);
+}
+
+/*//////// tailwind variables ////////*/
+
+:root {
+  --background: #ffffff;
+
+  --foreground: #020817;
+  --foreground2: #1e293b;
+  --foreground3: #475569;
+
+  --primary: #2563eb;
+  --secondary: #f1f5f9;
+
+  --card-bg: #ffffff;
+  --header-bg: #f8fafc;
+  --sidebar-bg: #f1f5f9;
+
+  --button: #2563eb;
+  --button-hover: #1d4ed8;
+  --button2: #fb2c36;
+  --button2-hover: #dc2626;
+
+  --thead-bg: #f1f5f9;
+  --tbody-bg: #ffffff;
+
+  --border: #e2e8f0;
+
+}
+
+.dark {
+  --background: #0f172a;
+
+  --foreground: #f1f5f9;
+  --foreground2: #e2e8f0;
+
+  --primary: #3b82f6;
+  --secondary: #1e293b;
+
+  --card-bg: #1e293b;
+  --header-bg: #1e293b;
+
+  --sidebar-bg: #1e293b;
+
+  --button: #3b82f6;
+  --button-hover: #2563eb;
+  --button2: #fb2c36;
+  --button2-hover: #dc2626;
+
+  --thead-bg: #1e293b;
+  --tbody-bg: #141c29;
+
+  --border: #334155;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  font-family: 'robotoRegular', 'IranianSans';
+  /* font-family: 'Vazirmatn', sans-serif; */
+}
+
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}

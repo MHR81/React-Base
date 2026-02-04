@@ -1,0 +1,43 @@
+{
+  "sidebar": {
+    "profile": "پروفایل",
+    "home": "خانه",
+    "dashboard": "داشبورد",
+    "users": "کاربران",
+    "admins": "مدیران",
+    "support": "پشتیبانی",
+    "logout": "خروج"
+  },
+  "common": {
+    "language": "فارسی",
+    "home": "خانه",
+    "about": "درباره ما",
+    "login": "ورود",
+    "register": "ثبت نام",
+    "logout": "خروج",
+    "profile": "پروفایل",
+    "settings": "تنظیمات",
+    "dark": "حالت تاریک",
+    "light": "حالت روشن",
+    "Go Back" : "بازگشت"
+  },
+  "auth": {
+    "email": "ایمیل",
+    "password": "رمز عبور",
+    "confirmPassword": "تایید رمز عبور",
+    "forgotPassword": "رمز عبور را فراموش کردید؟",
+    "noAccount": "حساب کاربری ندارید؟",
+    "haveAccount": "قبلا ثبت نام کرده اید؟",
+    "signUp": "ثبت نام",
+    "signIn": "ورود",
+    "otp": "کد تایید",
+    "verifyOtp": "تایید کد",
+    "resend": "ارسال مجدد کد"
+  },
+  "messages": {
+    "success": "موفق!",
+    "error": "خطا",
+    "loading": "درحال بارگذاری...",
+    "welcome": "خوش آمدید!"
+  }
+}
