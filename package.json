@@ -15,6 +15,7 @@
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/vite": "^4.1.18",
     "axios": "^1.13.2",
+    "firebase": "^12.8.0",
     "framer-motion": "^12.23.26",
     "i18next": "^25.7.3",
     "lottie-react": "^2.4.1",

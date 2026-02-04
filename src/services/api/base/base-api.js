@@ -106,10 +106,8 @@ const requests = {
   put: (url, body) => axios.put(url, body),
   patch: (url, body) => axios.patch(url, body),
   delete: (url, body) => axios.delete(url, { data: body }),
-  postFormData: (url, formData) =>
-    axios.post(url, formData, { headers: { "Content-Type": "multipart/form-data" } }),
-  putMedia: (url, body) =>
-    axios.put(url, body, { headers: { "Content-Type": "application/x-www-form-urlencoded" } }),
+  postFormData: (url, formData) => axios.post(url, formData, { headers: { "Content-Type": "multipart/form-data" } }),
+  putMedia: (url, body) => axios.put(url, body, { headers: { "Content-Type": "application/x-www-form-urlencoded" } }),
 };
 
 export default requests;

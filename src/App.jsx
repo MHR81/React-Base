@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { clearToken } from "./redux/slices/authSlice";
 import Router from "./Routes/Router";
 
-// import notificationPush from "./services/push/notificationPush";
+import notificationPush from "./services/push/notificationPush";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ export default function App() {
     checkTokenValidity();
     checkTheme();
 
-    // notificationPush.init();
+    notificationPush.init();
   }, []);
 
   return <Router />;

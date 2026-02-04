@@ -1,7 +1,6 @@
 import pushManager from "./base/base-push";
 import requests from "../api/base/base-api";
 
-const API_ENDPOINT = '/fcm/v1/save-push-token-user';
 
 const notificationPush = {
     // شروع کامل
@@ -14,11 +13,13 @@ const notificationPush = {
         const token = await pushManager.getToken();
         if (!token) return null;
 
+
         // ذخیره در سرور (مثل API post)
-        await requests.post(API_ENDPOINT, {
+        const body = {
             push_token: token,
             device_id: navigator.userAgent.replace(/\D/g, '').slice(0, 10) || 'web-' + Date.now()
-        });
+        }
+        await requests.post('/fcm/v1/save-push-token-user', body);
 
         return token;
     },
