@@ -1,3 +1,5 @@
+import { io } from 'socket.io-client';
+
 class SocketManager {
     constructor() {
         this.socket = null;
@@ -5,44 +7,48 @@ class SocketManager {
     }
 
     connect(url) {
-        this.socket = new WebSocket(url);
+        const token = localStorage.getItem('token'); // یا از جای دیگه بگیر
 
-        this.socket.onopen = () => {
-            console.log('✅ WebSocket connected');
-        };
+        this.socket = io(url, {
+            auth: { token }, // ← ← ← مهمه
+            transports: ['websocket'],
+        });
 
-        this.socket.onmessage = (event) => {
-            const data = JSON.parse(event.data);
-            // اگه eventType داشت، اون لیسنرها رو صدا بزن
-            if (data.event && this.listeners.has(data.event)) {
-                this.listeners.get(data.event).forEach(cb => cb(data.payload));
+        this.socket.on('connect', () => {
+            console.log('✅ Socket.IO connected');
+        });
+
+        this.socket.on('disconnect', () => {
+            console.log('❌ Socket.IO disconnected');
+        });
+
+        this.socket.on('error', (error) => {
+            console.error('Socket.IO error:', error);
+        });
+
+        // Listen to events from server
+        this.socket.onAny((event, data) => {
+            if (this.listeners.has(event)) {
+                this.listeners.get(event).forEach(cb => cb(data));
             }
-        };
+        });
 
-        this.socket.onclose = () => {
-            console.log('❌ WebSocket disconnected');
-        };
-
-        this.socket.onerror = (error) => {
-            console.error('WebSocket error:', error);
-        };
+        return this.socket;
     }
 
-    // مثل requests.post
     emit(event, data) {
-        if (this.socket?.readyState === WebSocket.OPEN) {
-            this.socket.send(JSON.stringify({ event, data }));
+        if (this.socket?.connected) {
+            this.socket.emit(event, data);
         }
     }
 
-    // مثل useEffect برای یه event خاص
     on(event, callback) {
         if (!this.listeners.has(event)) {
             this.listeners.set(event, []);
         }
         this.listeners.get(event).push(callback);
 
-        // برای unmount
+        // Return unsubscribe
         return () => this.off(event, callback);
     }
 
@@ -54,9 +60,8 @@ class SocketManager {
     }
 
     disconnect() {
-        this.socket?.close();
+        this.socket?.disconnect();
     }
 }
 
-const socketManager = new SocketManager();
-export default socketManager;
+export default new SocketManager();
